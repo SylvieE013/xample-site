@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-200">
+  <div class="flex h-screen gap-20">
+    <!-- Sidebar -->
+    <div class="hidden md:block bg-gray-800 text-white w-64 p-6 md:shrink-0 h-20 w-full md:h-full md:w-64">
+      <div class="flex justify-between">
+        <a href="#" class="text-2xl font-bold">BUYS Scents</a>
+      </div>
+      <div class="mt-10">
+        <nav id="sidebarMenu" class="hidden md:block space-y-6 mt-10">
+          <div class="space-y-4">
+            <h1 class="text-sm font-bold uppercase text-gray-400">Menu</h1>
+            <a href="BuyScent.html" class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Dashboard</a>
+            <a href="Calendar.html" class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Calendar</a>
+            <a href="Users.html" class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Users</a>
+          </div>
+          <div class="space-y-4 mt-10">
+            <h1 class="text-sm font-bold uppercase text-gray-400">Support</h1>
+            <a href="Messages.html" class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Messages</a>
+            <a href="Invoice.html" class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Invoice</a>
+          </div>
+          <div class="space-y-4 mt-10">
+            <h1 class="text-sm font-bold uppercase text-gray-400">Stocks</h1>
+            <a href="stockes.html" class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Stocks</a>
+            <a href="orders.html" class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Orders</a>
+            <a href="shipping.html" class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Shipping</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Users -->
+    <section id="Users" class="flex-1 p-6">
+      <div class="bg-white p-6 rounded-lg shadow">
+        <div class="flex justify-between mb-4">
+          <h1 class="text-2xl font-bold">Users</h1>
+          <button id="add-member-btn" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">+ Add Member</button>
+        </div>
+
+        <!-- User Table -->
+        <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+          <table class="w-full table-auto border-collapse border border-gray-300" id="user-table">
+            <thead class="bg-gray-300 border-b border-gray-300">
+              <tr>
+                <th class="px-4 py-2 border">Name</th>
+                <th class="px-4 py-2 border">Title</th>
+                <th class="px-4 py-2 border">Status</th>
+                <th class="px-4 py-2 border">Role</th>
+                <th class="px-4 py-2 border">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Example Row -->
+              <tr class="hover:bg-gray-50">
+                <td class="px-4 py-2 border">Patrick Moya</td>
+                <td class="px-4 py-2 border">UI/UX Designer</td>
+                <td class="px-4 py-2 border">Active</td>
+                <td class="px-4 py-2 border">Admin</td>
+                <td class="px-4 py-2 border">
+                  <button class="edit-btn text-blue-600 hover:underline">Edit</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      
+      <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-lg p-6 w-full max-w-sm shadow-lg">
+          <h2 id="modal-title" class="text-xl font-semibold text-gray-800 mb-4"></h2>
+          <form id="modal-form">
+            <div class="mb-4">
+              <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+              <input type="text" id="name" class="w-full border rounded-lg px-4 py-2" required>
+            </div>
+            <div class="mb-4">
+              <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+              <input type="text" id="title" class="w-full border rounded-lg px-4 py-2" required>
+            </div>
+            <div class="mb-4">
+              <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+              <select id="status" class="w-full border rounded-lg px-4 py-2">
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
+              <select id="role" class="w-full border rounded-lg px-4 py-2">
+                <option value="Admin">Admin</option>
+                <option value="Employee">Employee</option>
+                <option value="Manager">Manager</option>
+                <option value="Intern">Intern</option>
+              </select>
+            </div>
+            <div class="flex justify-between">
+              <button type="button" id="cancel-btn" class="bg-gray-100 px-4 py-2 rounded-md">Cancel</button>
+              <button type="button" id="remove-btn" class="bg-red-600 text-white px-4 py-2 rounded-md hidden">Remove</button>
+              <button type="submit" id="submit-btn" class="bg-blue-600 text-white px-4 py-2 rounded-md">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalForm = document.getElementById('modal-form');
+    const addMemberBtn = document.getElementById('add-member-btn');
+    const cancelBtn = document.getElementById('cancel-btn');
+    const removeBtn = document.getElementById('remove-btn');
+    const userTable = document.getElementById('user-table').getElementsByTagName('tbody')[0];
+    let currentRow = null;
+
+    // Open for Add/Edit
+    function openModal(title, isEditing = false) {
+      modalTitle.textContent = title;
+      modal.classList.remove('hidden');
+      removeBtn.style.display = isEditing ? 'block' : 'none';
+    }
+
+    // Close Modal
+    function closeModal() {
+      modal.classList.add('hidden');
+      modalForm.reset();
+      currentRow = null;
+    }
+
+    // Add New Member
+    addMemberBtn.addEventListener('click', () => openModal('Add New Member'));
+
+    // Edit Existing Member
+    userTable.addEventListener('click', (e) => {
+      if (e.target.classList.contains('edit-btn')) {
+        currentRow = e.target.closest('tr');
+        const cells = currentRow.getElementsByTagName('td');
+        document.getElementById('name').value = cells[0].textContent;
+        document.getElementById('title').value = cells[1].textContent;
+        document.getElementById('status').value = cells[2].textContent;
+        document.getElementById('role').value = cells[3].textContent;
+        openModal('Edit Member', true);
+      }
+      if (e.target.classList.contains('remove-btn')) {
+        const row = e.target.closest('tr');
+        row.remove();
+      }
+    });
+
+    // Cancel Button
+    cancelBtn.addEventListener('click', closeModal);
+
+    // Remove Button 
+    removeBtn.addEventListener('click', () => {
+      if (currentRow) {
+        currentRow.remove();
+        closeModal();
+      }
+    });
+
+    // Save New or Edited Member
+    modalForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const title = document.getElementById('title').value;
+      const status = document.getElementById('status').value;
+      const role = document.getElementById('role').value;
+
+      // Edit existing row
+      if (currentRow) {
+        const cells = currentRow.getElementsByTagName('td');
+        cells[0].textContent = name;
+        cells[1].textContent = title;
+        cells[2].textContent = status;
+        cells[3].textContent = role;
+      } else {
+        const newRow = userTable.insertRow();
+        newRow.innerHTML = `
+          <td class="px-4 py-2 border">${name}</td>
+          <td class="px-4 py-2 border">${title}</td>
+          <td class="px-4 py-2 border">${status}</td>
+          <td class="px-4 py-2 border">${role}</td>
+          <td class="px-4 py-2 border">
+            <button class="edit-btn text-blue-600 hover:underline">Edit</button>
+          </td>
+        `;
+      }
+      closeModal();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-200">
+  <div class="flex h-screen gap-20">
+    <!-- Sidebar -->
+    <div class="hidden md:block bg-gray-800 text-white w-64 p-6 md:shrink-0 h-20 w-full md:h-full md:w-64">
+      <div class="flex justify-between">
+        <a href="#" class="text-2xl font-bold">BUYS Scents</a>
+        
+      </div>
+      
+      <div class="">
+          <nav id="sidebarMenu" class="hidden md:block space-y-6 mt-10">
+            <!-- Menu Section -->
+            <div class="space-y-4">
+              <h1 class="text-sm font-bold uppercase text-gray-400">Menu</h1>
+              <a href="BuyScent.html"class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Dashboard</a>
+              <a href="Calendar.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Calendar</a>
+              <a href="Users.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Users</a>
+            </div>
+    
+            <!-- Support Section -->
+            <div class="space-y-4 mt-10">
+              <h1 class="text-sm font-bold uppercase text-gray-400">Support</h1>
+              <a href="Messages.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Messages</a>
+              <a href="Invoice.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Invoice</a>
+            </div>
+    
+            <!-- Stocks Section -->
+            <div class="space-y-4 mt-10">
+              <h1 class="text-sm font-bold uppercase text-gray-400">Stocks</h1>
+              <a href="stockes.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Stocks</a>
+              <a href="orders.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Orders</a>
+              <a href="shipping.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Shipping</a>
+            </div>
+          </nav>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-6 overflow-auto">
+      <!-- Dashboard Section -->
+      <section id="Dashboard" class="" class="grid">
+
+        <div class="grid md:grid-cols-3 gap-8 md:h-48">
+            <div class="bg-white p-4 rounded shadow-outline shadow-xl">
+              <h2 class="text-lg font-semibold">34.6K</h2>
+              <p class="text-sm text-gray-500">Total Sales Today</p>
+            </div>
+
+            <div class="bg-white p-4 rounded hadow-outline shadow-xl">
+              <h2 class="text-lg font-semibold">4.6K</h2>
+              <p class="text-sm text-gray-500">Site Visits Today</p>
+            </div>
+
+            <div class="bg-white p-4 rounded shadow-outline shadow-xl">
+              <h2 class="text-lg font-semibold">4.6K</h2>
+              <p class="text-sm text-gray-500">Pending Sales</p>
+            </div>
+        </div> <br><br>
+
+               
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white text-black p-8 rounded shadow-xl md:col-span-2 h-3/4">
+            <h2 class="text-lg font-semibold">Sales Graph</h2>
+          </div>
+
+          
+          <div class="grid grid-rows-2 gap-4">
+
+            <!-- Upcoming Company Events -->
+            <div class="bg-white p-4 rounded shadow-xl">
+              <h2 class="text-lg font-semibold">Upcoming Company Events</h2><br>
+              <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae sequi harum eveniet odio maxime! Doloribus cupiditate labore sunt rerum necessitatibus veritatis, laboriosam similique, eum vitae minima, commodi iste sit fuga.</h1>
+            </div>
+
+            <!-- Messages -->
+            <div class="bg-white p-4 rounded shadow-xl">
+              <h2 class="text-lg font-semibold">Messages</h2>
+              <br>
+              
+              
+              <div class="flex items-center">
+                <div class="bg-gray-300 w-10 h-10 rounded-full"></div>
+                <div class="ml-3">
+                  <p class="text-sm font-bold text-gray-800">John Doe</p>
+                  <p class="text-sm text-gray-500">Lorem ipsum dolor</p>
+                </div>
+              </div>
+              <br>
+
+              
+              <div class="flex items-center">
+                <div class="bg-gray-300 w-10 h-10 rounded-full"></div>
+                <div class="ml-3">
+                  <p class="text-sm font-bold text-gray-800">John Doe</p>
+                  <p class="text-sm text-gray-500">Lorem ipsum dolor</p>
+                </div>
+              </div>
+              <br>
+
+        
+              <div class="flex items-center">
+                <div class="bg-gray-300 w-10 h-10 rounded-full"></div>
+                <div class="ml-3">
+                  <p class="text-sm font-bold text-gray-800">John Doe</p>
+                  <p class="text-sm text-gray-500">Lorem ipsum dolor</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+
+</body>
+</html>

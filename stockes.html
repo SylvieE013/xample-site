@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stocks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-200">
+  <div class="flex h-screen gap-20">
+   <!-- Sidebar -->
+   <div class="hidden md:block bg-gray-800 text-white w-64 p-6 md:shrink-0 h-20 w-full md:h-full md:w-64">
+      <div class="flex justify-between">
+        <a href="#" class="text-2xl font-bold">BUYS Scents</a>
+      </div>
+    
+      <div class="mt-10">
+        <nav id="sidebarMenu" class="hidden md:block space-y-6 mt-10">
+          <!-- Menu Section -->
+          <div class="space-y-4">
+            <h1 class="text-sm font-bold uppercase text-gray-400">Menu</h1>
+            <a href="BuyScent.html" class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Dashboard</a>
+            <a href="Calendar.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Calendar</a>
+            <a href="Users.html" class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Users</a>
+          </div>
+  
+          <!-- Support Section -->
+          <div class="space-y-4 mt-10">
+            <h1 class="text-sm font-bold uppercase text-gray-400">Support</h1>
+            <a href="Messages.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Messages</a>
+            <a href="Invoice.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Invoice</a>
+          </div>
+  
+          <!-- Stocks Section -->
+          <div class="space-y-4 mt-10">
+            <h1 class="text-sm font-bold uppercase text-gray-400">Stocks</h1>
+            <a href="stockes.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Stocks</a>
+            <a href="orders.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Orders</a>
+            <a href="shipping.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Shipping</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  
+
+
+
+    <!-- Stocks -->
+    <section id="Stocks" class="flex-1 p-6">
+      <div class="bg-white p-6 rounded-lg shadow">
+        <div class="flex justify-between mb-4">
+          <h1 class="text-2xl font-bold">Product Management</h1>
+          <button id="add-product-btn" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">+ Add New Product</button>
+        </div>
+  
+        <!-- Product Table -->
+        <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+          <table class="w-full table-auto border-collapse border border-gray-300" id="product-table">
+            <thead class="bg-gray-300 border-b border-gray-300">
+              <tr>
+                <th class="px-4 py-2 border">Product Name</th>
+                <th class="px-4 py-2 border">Product ID</th>
+                <th class="px-4 py-2 border">Price</th>
+                <th class="px-4 py-2 border">Stock</th>
+                <th class="px-4 py-2 border">Type</th>
+                <th class="px-4 py-2 border">Status</th>
+                <th class="px-4 py-2 border">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Example Row -->
+              <tr class="hover:bg-gray-50">
+                <td class="px-4 py-2 border">Perfume 1</td>
+                <td class="px-4 py-2 border">#KP267400</td>
+                <td class="px-4 py-2 border">₱90.50</td>
+                <td class="px-4 py-2 border">350</td>
+                <td class="px-4 py-2 border">Fruity</td>
+                <td class="px-4 py-2 border">Active</td>
+                <td class="px-4 py-2 border">
+                  <button class="edit-btn text-blue-600 hover:underline">Edit</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      
+      
+      <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-lg p-6 w-full max-w-sm shadow-lg">
+          <h2 id="modal-title" class="text-xl font-semibold text-gray-800 mb-4"></h2>
+          <form id="modal-form">
+            <div class="mb-4">
+              <label for="product-name" class="block text-sm font-medium text-gray-700">Product Name</label>
+              <input type="text" id="product-name" class="w-full border rounded-lg px-4 py-2" required>
+            </div>
+            <div class="mb-4">
+              <label for="product-id" class="block text-sm font-medium text-gray-700">Product ID</label>
+              <input type="text" id="product-id" class="w-full border rounded-lg px-4 py-2" required>
+            </div>
+            <div class="mb-4">
+              <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+              <input type="number" step="0.01" id="price" class="w-full border rounded-lg px-4 py-2" required>
+            </div>
+            <div class="mb-4">
+              <label for="stock" class="block text-sm font-medium text-gray-700">Stock</label>
+              <input type="number" id="stock" class="w-full border rounded-lg px-4 py-2" required>
+            </div>
+            <div class="mb-4">
+              <label for="type" class="block text-sm font-medium text-gray-700">Type</label>
+              <input type="text" id="type" class="w-full border rounded-lg px-4 py-2" required>
+            </div>
+            <div class="mb-4">
+              <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
+              <select id="status" class="w-full border rounded-lg px-4 py-2">
+                <option value="Active">Active</option>
+                <option value="Pending">Pending</option>
+                <option value="On Sale">On Sale</option>
+              </select>
+            </div>
+            <div class="flex justify-between">
+              <button type="button" id="cancel-btn" class="bg-gray-100 px-4 py-2 rounded-md">Cancel</button>
+              <button type="button" id="remove-btn" class="bg-red-600 text-white px-4 py-2 rounded-md hidden">Remove</button>
+              <button type="submit" id="submit-btn" class="bg-blue-600 text-white px-4 py-2 rounded-md">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+
+    <script>
+      const modal = document.getElementById('modal');
+      const modalTitle = document.getElementById('modal-title');
+      const modalForm = document.getElementById('modal-form');
+      const addProductBtn = document.getElementById('add-product-btn');
+      const cancelBtn = document.getElementById('cancel-btn');
+      const removeBtn = document.getElementById('remove-btn');
+      const productTable = document.getElementById('product-table').getElementsByTagName('tbody')[0];
+      let currentRow = null;
+
+      // Open for Add/Edit
+      function openModal(title, isEditing = false) {
+        modalTitle.textContent = title;
+        modal.classList.remove('hidden');
+        removeBtn.style.display = isEditing ? 'block' : 'none';
+      }
+
+      // Close 
+      function closeModal() {
+        modal.classList.add('hidden');
+        modalForm.reset();
+        currentRow = null;
+      }
+
+      // Add New Product
+      addProductBtn.addEventListener('click', () => openModal('Add New Product'));
+
+      // Edit Existing Product
+      productTable.addEventListener('click', (e) => {
+        if (e.target.classList.contains('edit-btn')) {
+          currentRow = e.target.closest('tr');
+          const cells = currentRow.getElementsByTagName('td');
+          document.getElementById('product-name').value = cells[0].textContent;
+          document.getElementById('product-id').value = cells[1].textContent;
+          document.getElementById('price').value = cells[2].textContent.replace('₱', '');
+          document.getElementById('stock').value = cells[3].textContent;
+          document.getElementById('type').value = cells[4].textContent;
+          document.getElementById('status').value = cells[5].textContent;
+          openModal('Edit Product', true);
+        }
+      });
+
+      // Handle Form Submission
+      modalForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('product-name').value;
+        const id = document.getElementById('product-id').value;
+        const price = `₱${parseFloat(document.getElementById('price').value).toFixed(2)}`;
+        const stock = document.getElementById('stock').value;
+        const type = document.getElementById('type').value;
+        const status = document.getElementById('status').value;
+
+        if (currentRow) {
+          const cells = currentRow.getElementsByTagName('td');
+          cells[0].textContent = name;
+          cells[1].textContent = id;
+          cells[2].textContent = price;
+          cells[3].textContent = stock;
+          cells[4].textContent = type;
+          cells[5].textContent = status;
+        } else {
+          const newRow = productTable.insertRow();
+          newRow.innerHTML = `
+            <td class="px-4 py-2 border">${name}</td>
+            <td class="px-4 py-2 border">${id}</td>
+            <td class="px-4 py-2 border">${price}</td>
+            <td class="px-4 py-2 border">${stock}</td>
+            <td class="px-4 py-2 border">${type}</td>
+            <td class="px-4 py-2 border">${status}</td>
+            <td class="px-4 py-2 border">
+              <button class="edit-btn text-blue-600 hover:underline">Edit</button>
+            </td>
+          `;
+        }
+
+        closeModal();
+      });
+
+      // Remove Product
+      removeBtn.addEventListener('click', () => {
+        if (currentRow) {
+          productTable.deleteRow(currentRow.rowIndex - 1);
+          closeModal();
+        }
+      });
+
+      // Cancel Edit/Add
+      cancelBtn.addEventListener('click', closeModal);
+    </script>
+     
+    
+ 
+</body>
+</html>

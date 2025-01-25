@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-200">
+  <div class="flex h-screen gap-20">
+    <!-- Sidebar -->
+    <div class="hidden md:block bg-gray-800 text-white w-64 p-6 md:shrink-0 h-20 w-full md:h-full md:w-64">
+        <div class="flex justify-between">
+          <a href="#" class="text-2xl font-bold">BUYS Scents</a>
+          
+        </div>
+        
+        <div class="">
+            <nav id="sidebarMenu" class="hidden md:block space-y-6 mt-10">
+              <!-- Menu Section -->
+              <div class="space-y-4">
+                <h1 class="text-sm font-bold uppercase text-gray-400">Menu</h1>
+                <a href="BuyScent.html" class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Dashboard</a>
+                <a href="Calendar.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Calendar</a>
+                <a href="Users.html" class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Users</a>
+              </div>
+      
+              <!-- Support Section -->
+              <div class="space-y-4 mt-10">
+                <h1 class="text-sm font-bold uppercase text-gray-400">Support</h1>
+                <a href="Messages.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Messages</a>
+                <a href="Invoice.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Invoice</a>
+              </div>
+      
+              <!-- Stocks Section -->
+              <div class="space-y-4 mt-10">
+                <h1 class="text-sm font-bold uppercase text-gray-400">Stocks</h1>
+                <a href="stockes.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Stocks</a>
+                <a href="orders.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Orders</a>
+                <a href="shipping.html"  class="block w-full text-left hover:bg-gray-700 rounded px-4 py-2">Shipping</a>
+              </div>
+            </nav>
+        </div>
+      </div>
+    <!-- Shipping Section -->
+    <section id="Shipping" class="flex-1 flex  justify-center">
+        <!-- <h1 class="text-2xl font-bold text-left">Shipping</h1>
+        <p class="text-gray-600 text-left">Track shipping details here.</p> -->
+        <div class="container mx-auto p-6">
+          <!-- Metrics Overview -->
+          <header class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              <div class="bg-white p-4 rounded-lg shadow text-center">
+                  <h2 class="text-lg font-semibold">Total Shipment</h2>
+                  <p class="text-3xl font-bold">91,123</p>
+                  <p class="text-sm text-green-500">+100 Packages</p>
+              </div>
+              <div class="bg-white p-4 rounded-lg shadow text-center">
+                  <h2 class="text-lg font-semibold">Pending Shipment</h2>
+                  <p class="text-3xl font-bold">12,349</p>
+                  <p class="text-sm text-red-500">-20 Packages</p>
+              </div>
+              <div class="bg-white p-4 rounded-lg shadow text-center">
+                  <h2 class="text-lg font-semibold">On Going Shipment</h2>
+                  <p class="text-3xl font-bold">32,021</p>
+                  <p class="text-sm text-green-500">+80 Packages</p>
+              </div>
+              <div class="bg-white p-4 rounded-lg shadow text-center">
+                  <h2 class="text-lg font-semibold">Delivery Shipment</h2>
+                  <p class="text-3xl font-bold">46,753</p>
+                  <p class="text-sm text-green-500">+140 Packages</p>
+              </div>
+          </header>
+  
+          <!-- Graph & Map Section -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+              <div class="bg-white p-6 rounded-lg shadow">
+                  <h2 class="text-xl font-semibold mb-4">Shipment Statistics</h2>
+                  <div class="h-48 flex justify-center items-center bg-gray-100 rounded-lg">
+                      <p class="text-gray-500">Graph Placeholder</p>
+                  </div>
+              </div>
+  
+              <div class="bg-white p-6 rounded-lg shadow">
+                  <h2 class="text-xl font-semibold mb-4">Top Exporting Location</h2>
+                  <div class="h-48 flex justify-center items-center bg-gray-100 rounded-lg">
+                      <p class="text-gray-500">Map Placeholder</p>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Shipment Table -->
+          <div class="bg-white p-6 rounded-lg shadow">
+              <h2 class="text-xl font-semibold mb-4">Shipment Orders</h2>
+              <div class="overflow-x-auto">
+                  <table class="w-full table-auto border-collapse border border-gray-300">
+                      <thead class="bg-gray-200 border-b border-gray-300">
+                          <tr>
+                              <th class="p-3 text-left border-r border-gray-300">Order ID</th>
+                              <th class="p-3 text-left border-r border-gray-300">Track Number</th>
+                              <th class="p-3 text-left border-r border-gray-300">Billing</th>
+                              <th class="p-3 text-left border-r border-gray-300">Status</th>
+                              <th class="p-3 text-left border-r border-gray-300">Shipped date</th>
+                              <th class="p-3 text-left border-r border-gray-300">Place of Discharge</th>
+                              <th class="p-3 text-left">Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          
+                          <tr class="odd:bg-white even:bg-gray-50 border-b border-gray-300">
+                              <td class="p-3 border-r border-gray-300">#OD123456</td>
+                              <td class="p-3 border-r border-gray-300">#AJ001JN12</td>
+                              <td class="p-3 border-r border-gray-300">Gcash</td>
+                              <td class="p-3 border-r border-gray-300">
+                                  <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">Shipped</span>
+                              </td>
+                              <td class="p-3 border-r border-gray-300">08/13/2024</td>
+                              <td class="p-3 border-r border-gray-300">Tondo, Manila</td>
+                              <td class="p-3">
+                                  <button 
+                                      onclick="toggleDetails(this)" 
+                                      class="text-blue-500 underline focus:outline-none">View</button>
+                              </td>
+                          </tr>
+                          <tr class="hidden">
+                              <td colspan="7" class="bg-gray-100 p-4 border-b border-gray-300">
+                                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                      <div>
+                                          <p><strong>Number of Items:</strong> 3</p>
+                                          <p><strong>Item Name:</strong> Electronics</p>
+                                          <p><strong>Category:</strong> Tech</p>
+                                      </div>
+                                      <div>
+                                          <p><strong>Fragile:</strong> Yes</p>
+                                          <p><strong>Quantity:</strong> 10</p>
+                                          <p><strong>Weight:</strong> 15kg</p>
+                                      </div>
+                                  </div>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+              <!-- Footer -->
+              <div class="flex justify-between items-center mt-4">
+                  <button class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg">Previous</button>
+                  <div class="flex space-x-2">
+                      <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">1</button>
+                      <button class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg">2</button>
+                      <button class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg">3</button>
+                  </div>
+                  <button class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg">Next</button>
+              </div>
+          </div>
+      </div>
+
+      </section>
+  </div>
+  <script>
+    // shipping
+    function toggleDetails(button) {
+      const row = button.closest("tr").nextElementSibling;
+      row.classList.toggle("hidden");
+    }
+
+  </script>
+</body>
+</html>
